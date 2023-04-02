@@ -1164,13 +1164,13 @@ spec:
         runAsUser: 10001
       containers:
       - name: buildermgr
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--builderMgr", "--storageSvcUrl", "http://storagesvc.fission"]
         env:
         - name: FETCHER_IMAGE
-          value: "fission/fetcher:v1.18.0"
+          value: "fission/fetcher:v0.1.2"
         - name: FETCHER_IMAGE_PULL_POLICY
           value: "IfNotPresent"
         - name: BUILDER_IMAGE_PULL_POLICY
@@ -1247,13 +1247,13 @@ spec:
         runAsUser: 10001
       containers:
       - name: executor
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--executorPort", "8888"]
         env:
         - name: FETCHER_IMAGE
-          value: "fission/fetcher:v1.18.0"
+          value: "fission/fetcher:v0.1.2"
         - name: FETCHER_IMAGE_PULL_POLICY
           value: "IfNotPresent"
         - name: FISSION_BUILDER_NAMESPACE
@@ -1351,7 +1351,7 @@ spec:
         runAsUser: 10001
       containers:
       - name: kubewatcher
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--kubewatcher", "--routerUrl", "http://router.fission"]
@@ -1401,7 +1401,7 @@ spec:
     spec:
       containers:
       - name:  mqtrigger-keda
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--mqt_keda", "--routerUrl", "http://router.fission"]
@@ -1476,7 +1476,7 @@ spec:
         runAsUser: 10001
       containers:
       - name: router
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--routerPort", "8888", "--executorUrl", "http://executor.fission"]
@@ -1585,7 +1585,7 @@ spec:
         runAsUser: 10001
       containers:
       - name: storagesvc
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--storageServicePort", "8000", "--storageType", "local"]
@@ -1666,7 +1666,7 @@ spec:
         runAsUser: 10001
       containers:
       - name: timer
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--timer", "--routerUrl", "http://router.fission"]
@@ -1725,7 +1725,7 @@ spec:
         runAsUser: 10001
       containers:
       - name: webhook
-        image: "index.docker.io/fission/fission-bundle:v1.18.0"
+        image: "huyezs/fission-bundle:v0.1.2"
         imagePullPolicy: IfNotPresent
         command: ["/fission-bundle"]
         args: ["--webhookPort", "9443"]
@@ -1767,7 +1767,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: post-install-job
-          image: fission/reporter:v1.18.0
+          image: huyezs/reporter:v0.1.2
           imagePullPolicy: IfNotPresent
           command: [ "/reporter" ]
           args: ["event", "-c", "fission-use", "-a", "yaml-post-install", "-l", "fission-all-v1.18.0"]
@@ -2079,7 +2079,7 @@ spec:
       restartPolicy: Never
       containers:
       - name: pre-upgrade-job
-        image: fission/pre-upgrade-checks:v1.18.0
+        image: huyezs/pre-upgrade-checks:v0.1.2
         imagePullPolicy: IfNotPresent
         command: [ "/pre-upgrade-checks" ]
         env:        
